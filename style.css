@@ -403,7 +403,7 @@ height: 100%;
 #comp-result {
   font-size: 1.4rem;
   margin-top: 55px;
-  color: #f2fa00;
+  color: #00f6ff;
   text-shadow: 0 0 3px #f2fa00;
   text-align:center;
 }
@@ -426,7 +426,7 @@ height: 100%;
 
   /* nombres jugadores */
   .player-name {
-    font-size: 0.35rem;
+    font-size: 0.15rem;
     line-height: 1.4;
   }
 
@@ -437,7 +437,7 @@ height: 100%;
 
   /* panel scout / datos */
   #bottom-right {
-    font-size: 0.35rem;
+    font-size: 0.15rem;
     line-height: 18px;
   }
 
