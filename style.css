@@ -426,40 +426,14 @@ height: 100%;
 
   /* nombres jugadores */
   .player-name {
-    font-size: 0.45rem;
+    font-size: 0.25rem;
     line-height: 1.4;
-  }
-
-  /* títulos columnas */
-  .column-title {
-    font-size: 0.65rem;
   }
 
   /* panel scout / datos */
   #bottom-right {
-    font-size: 0.45rem;
+    font-size: 0.25rem;
     line-height: 18px;
-  }
-
-  /* texto stats */
-  .stat-label {
-    font-size: 0.52rem;
-  }
-
-  /* título ratings */
-  .ratings-title {
-    font-size: 0.7rem;
-  }
-
-  /* resultado compare */
-  #comp-result {
-    font-size: 0.75rem;
-  }
-
-  /* botón scout */
-  #scout-btn {
-    font-size: 0.7rem;
-    padding: 10px 18px;
   }
 
 }
