@@ -211,18 +211,18 @@ const players = [
   shotStats: { fastbreak:63, pintura:28, media:51, "3P ncaa":57, "3P nba":63, libres:67 }
 },
 {
-  name: "CHRISTIAN ANDERSON",
-  height: "1.88 M",
+  name: "DARIUS ACUFF",
+  height: "1.90 M",
   position: "BASE",
-  comp: "JORDAN FARMAR",
-  country: "ALEMANIA",
-  age: "20",
-  team: "TEXAS TECH",
-  ataque: "<br><span class='gap'></span>- 18.5 PPG | 23.8 USG% | 38.4 MIN<br>- 47.2 FG% |  41.5 3P% | 80.5 FT%<br>- 7.4 ASIS | 3.3 TOV",
-  defensa: "<br><span class='gap'></span>- 3.6 REB | 2.0 PF<br>- 1.5 STL | 0.2 BLK<br>- 98.1 D-RAT | 2.31 D-BPR",
-  img: "Anderson.png",
-  stats: { atletico:42, tiro:79, pase:58, creacion:29, defensa:46, fisico:30 },
-  shotStats: { fastbreak:19, pintura:37, media:73, "3P ncaa":80, "3P nba":75, libres:37 }
+  comp: "ANFERNEE SIMONS",
+  country: "USA",
+  age: "19",
+  team: "ARKANSAS",
+  ataque: "<br><span class='gap'></span>- 23.5 PPG | 29.5 USG% | 35.1 MIN<br>- 48.4 FG% |  44.0 3P% | 80.9 FT%<br>- 6.4 ASIS | 2.2 TOV",
+  defensa: "<br><span class='gap'></span>- 3.1 REB | 1.6 PF<br>- 0.8 STL | 0.3 BLK<br>- 101.3 D-RAT | 1.04 D-BPR",
+  img: "Acuff.png",
+  stats: { atletico:47, tiro:69, pase:38, creacion:44, defensa:28, fisico:35 },
+  shotStats: { fastbreak:95, pintura:75, media:65, "3P ncaa":87, "3P nba":49, libres:67 }
 },
 {
   name: "ISAIAH EVANS",
@@ -253,18 +253,18 @@ const players = [
   shotStats: { fastbreak:11, pintura:72, media:70, "3P ncaa":80, "3P nba":55, libres:24 }
 },
 {
-  name: "BENNETT STIRTZ",
+  name: "LABARON PHILON",
   height: "1.93 M",
   position: "BASE",
-  comp: "CAM SPENCER",
+  comp: "DENNIS SCHRODER",
   country: "USA",
-  age: "22",
-  team: "IOWA",
-  ataque: "<br><span class='gap'></span>- 19.8 PPG | 26.9 USG% | 37.7 MIN<br>- 47.7 FG% |  35.8 3P% | 84.8 FT%<br>- 4.4 ASIS | 1.8 TOV",
-  defensa: "<br><span class='gap'></span>- 2.6 REB | 1.9 PF<br>- 1.4 STL | 0.2 BLK<br>- 96.2 D-RAT | 2.48 D-BPR",
-  img: "Stirtz.png",
-  stats: { atletico:15, tiro:56, pase:81, creacion:25, defensa:20, fisico:12 },
-  shotStats: { fastbreak:7, pintura:67, media:85, "3P ncaa":55, "3P nba":65, libres:60 }
+  age: "20",
+  team: "ALABAMA",
+  ataque: "<br><span class='gap'></span>- 22.0 PPG | 30.0 USG% | 30.9 MIN<br>- 50.1 FG% |  39.9 3P% | 79.8 FT%<br>- 5.0 ASIS | 2.5 TOV",
+  defensa: "<br><span class='gap'></span>- 3.5 REB | 1.6 PF<br>- 1.2 STL | 0.2 BLK<br>- 100.6 D-RAT | 1.98 D-BPR",
+  img: "Philon.png",
+  stats: { atletico:56, tiro:31, pase:40, creacion:69, defensa:29, fisico:35 },
+  shotStats: { fastbreak:90, pintura:86, media:25, "3P ncaa":85, "3P nba":49, libres:68 }
 },
 {
   name: "RICHIE SAUNDERS",
@@ -295,18 +295,18 @@ const players = [
   shotStats: { fastbreak:18, pintura:81, media:36, "3P ncaa":3, "3P nba":1, libres:45 }
 },
 {
- name: "QUADIR COPELAND",
-  height: "1.98 M",
+  name: "CHRISTIAN ANDERSON",
+  height: "1.88 M",
   position: "BASE",
-  comp: "DALEN TERRY",
-  country: "USA",
-  age: "23",
-  team: "NC STATE",
-  ataque: "<br><span class='gap'></span>- 13.9 PPG | 25.6 USG% | 28.9 MIN<br>- 49.4 FG% |  39.7 3P% | 77.5 FT%<br>- 6.5 ASIS | 2.8 TOV",
-  defensa: "<br><span class='gap'></span>- 3.6 REB | 3.0 PF<br>- 1.8 STL | 0.1 BLK<br>- 99.2 D-RAT | 2.71 D-BPR",
-  img: "Copeland.png",
-  stats: { atletico:42, tiro:30, pase:75, creacion:50, defensa:25, fisico:70 },
-  shotStats: { fastbreak:57, pintura:63, media:16, "3P ncaa":9, "3P nba":62, libres:60 }
+  comp: "JORDAN FARMAR",
+  country: "ALEMANIA",
+  age: "20",
+  team: "TEXAS TECH",
+  ataque: "<br><span class='gap'></span>- 18.5 PPG | 23.8 USG% | 38.4 MIN<br>- 47.2 FG% |  41.5 3P% | 80.5 FT%<br>- 7.4 ASIS | 3.3 TOV",
+  defensa: "<br><span class='gap'></span>- 3.6 REB | 2.0 PF<br>- 1.5 STL | 0.2 BLK<br>- 98.1 D-RAT | 2.31 D-BPR",
+  img: "Anderson.png",
+  stats: { atletico:42, tiro:79, pase:58, creacion:29, defensa:46, fisico:30 },
+  shotStats: { fastbreak:19, pintura:37, media:73, "3P ncaa":80, "3P nba":75, libres:37 }
 },
 {
   name: "DONOVAN ATWELL",
@@ -337,18 +337,18 @@ const players = [
   shotStats: { fastbreak:87, pintura:57, media:13, "3P ncaa":65, "3P nba":41, libres:44 }
 },
 {
-  name: "null",
-  height: "2.02 M",
-  position: "PIVOT",
-  comp: "USMAN GARUBA",
-  country: "MALI",
-  age: "23",
-  team: "BYU",
-  ataque: "<br><span class='gap'></span>- 6.2 PPG | 11.7 USG% | 22.6 MIN<br>- 68.0 FG% |  - 3P% | 55.2 FT%<br>- 0.3 ASIS | 0.8 TOV",
-  defensa: "<br><span class='gap'></span>- 7.2 REB | 2.2 PF<br>- 1.0 STL | 1.8 BLK<br>- 96.6 D-RAT | 3.78 D-BPR",
-  img: "Keba Keita.png",
-  stats: { atletico:75, tiro:10, pase:20, creacion:20, defensa:53, fisico:30 },
-  shotStats: { fastbreak:18, pintura:58, media:2, "3P ncaa":2, "3P nba":2, libres:10 }
+  name: "BENNETT STIRTZ",
+  height: "1.93 M",
+  position: "BASE",
+  comp: "CAM SPENCER",
+  country: "USA",
+  age: "22",
+  team: "IOWA",
+  ataque: "<br><span class='gap'></span>- 19.8 PPG | 26.9 USG% | 37.7 MIN<br>- 47.7 FG% |  35.8 3P% | 84.8 FT%<br>- 4.4 ASIS | 1.8 TOV",
+  defensa: "<br><span class='gap'></span>- 2.6 REB | 1.9 PF<br>- 1.4 STL | 0.2 BLK<br>- 96.2 D-RAT | 2.48 D-BPR",
+  img: "Stirtz.png",
+  stats: { atletico:15, tiro:56, pase:81, creacion:25, defensa:20, fisico:12 },
+  shotStats: { fastbreak:7, pintura:67, media:85, "3P ncaa":55, "3P nba":65, libres:60 }
 },
 {
   name: "DARRION WILLIAMS",
@@ -379,18 +379,18 @@ const players = [
   shotStats: { fastbreak:45, pintura:64, media:26, "3P ncaa":49, "3P nba":59, libres:88 }
 },
 {
-  name: "null",
-  height: "2.02 M",
-  position: "PIVOT",
-  comp: "USMAN GARUBA",
-  country: "MALI",
+ name: "QUADIR COPELAND",
+  height: "1.98 M",
+  position: "BASE",
+  comp: "DALEN TERRY",
+  country: "USA",
   age: "23",
-  team: "BYU",
-  ataque: "<br><span class='gap'></span>- 6.2 PPG | 11.7 USG% | 22.6 MIN<br>- 68.0 FG% |  - 3P% | 55.2 FT%<br>- 0.3 ASIS | 0.8 TOV",
-  defensa: "<br><span class='gap'></span>- 7.2 REB | 2.2 PF<br>- 1.0 STL | 1.8 BLK<br>- 96.6 D-RAT | 3.78 D-BPR",
-  img: "Keba Keita.png",
-  stats: { atletico:75, tiro:10, pase:20, creacion:20, defensa:53, fisico:30 },
-  shotStats: { fastbreak:18, pintura:58, media:2, "3P ncaa":2, "3P nba":2, libres:10 }
+  team: "NC STATE",
+  ataque: "<br><span class='gap'></span>- 13.9 PPG | 25.6 USG% | 28.9 MIN<br>- 49.4 FG% |  39.7 3P% | 77.5 FT%<br>- 6.5 ASIS | 2.8 TOV",
+  defensa: "<br><span class='gap'></span>- 3.6 REB | 3.0 PF<br>- 1.8 STL | 0.1 BLK<br>- 99.2 D-RAT | 2.71 D-BPR",
+  img: "Copeland.png",
+  stats: { atletico:42, tiro:30, pase:75, creacion:50, defensa:25, fisico:70 },
+  shotStats: { fastbreak:57, pintura:63, media:16, "3P ncaa":9, "3P nba":62, libres:60 }
 },
 {
   name: "null",
