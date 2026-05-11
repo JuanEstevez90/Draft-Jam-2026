@@ -1,0 +1,419 @@
+body {
+  margin:0;
+  font-family:'Press Start 2P', cursive;
+  background:url('parquet.jpg') center/cover no-repeat fixed;
+  color:#ffd900;
+}
+
+#app {
+  padding:20px;
+}
+
+#player-lists {
+  display:flex;
+  gap:20px;
+}
+
+/* 🔧 RECTÁNGULO DE CADA COLUMNA (NUEVO) */
+.column {
+  width:33%;
+  background:#000C;
+  border:10px solid #1888b0;
+  padding:10px;
+  height: 215px; /* ajustá a gusto */
+  overflow-y: auto;
+
+  /* efecto glow / relieve */
+  box-shadow: 4px 4px 5px #000;
+}
+
+/* 🔧 HEADER COLOR (AGRANDADO) */
+.column-header {
+  height:14px;
+  margin-bottom:12px;
+}
+
+/* 🔧 PERMITIR QUE EL COLOR INLINE GANE */
+.player-name {
+  padding:6px;
+  cursor:pointer;
+  color: inherit; /* agregado */
+}
+
+.player-name.selected {
+  background:#0ff3;
+  border-left:3px solid #0ff;
+}
+
+#bottom {
+  display:flex;
+  margin-top:20px;
+  position: relative;
+}
+
+#bottom-left {
+  flex:1;
+  margin-right: 20px;
+  background:#000;
+
+  /* 🟦 Borde grueso estilo NBA Jam */
+  border:10px solid #1888b0;
+
+  /* ✨ Relieve retro */
+  box-shadow: 4px 4px 5px #000;
+}
+
+#bottom-left {
+  display: flex;
+  flex-direction: column;
+}
+
+#bottom-right {
+  flex:1;
+  margin-left: 20px;
+  background:#000C;
+  padding:15px;
+  line-height: 25px;
+  height: 550px; /* ajustá a gusto */
+  overflow-y: auto;
+
+  /* 🟦 Borde grueso estilo NBA Jam */
+  border:10px solid #1888b0;
+
+  /* ✨ Relieve retro */
+  box-shadow: 4px 4px 5px #000;
+}
+
+#scout-btn {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(calc(-50% - 16px));
+
+  background: #000;
+  border: 6px solid #1888b0;
+  padding: 17px 34px;
+
+  font-size: 1.30rem;
+  color: #00f6ff;
+  text-shadow: 0 0 4px #00f6ff;
+  box-shadow: 3px 3px 4px #000;
+  z-index: 10;
+}
+
+.portrait-placeholder {
+  background:url('back2.png') center/cover no-repeat fixed;
+  height:300px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+}
+
+.portrait-placeholder img {
+  height:110%;
+  width:auto;
+  image-rendering: pixelated;
+}
+
+.stat-box {
+  padding: 50px;
+background:url('back2.png') center/cover no-repeat;
+  font-size: 0.85rem;
+  border-top: 10px solid #1888b0;
+
+  position: relative; /* 🔥 clave */
+flex: 1;
+}
+
+.stats-grid {
+  transform: translateY(20px);
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.stats-column {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 200px;
+}
+
+.stat-label {
+  width: 130px;
+  text-align: left;
+  color: #f2fa00;
+  text-shadow: 0 0 3px #f2fa00;
+  font-size: 0.80rem;
+}
+
+.stat-bars {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.stat-bar {
+  width: 168px;
+  height: 18px;
+  background: #c70e00; /* rojo */
+  border: 3px solid #433b46;
+  box-shadow: inset 0 0 6px #000;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background: #00b900; /* verde */
+  box-shadow: inset 0 0 6px #000;
+}
+
+@keyframes insertCoinBlink {
+  0% { opacity: 1; }
+  50% { opacity: 0.1; }
+  100% { opacity: 1; }
+}
+
+#scout-text {
+  animation: insertCoinBlink 3.5s steps(1) infinite;
+}
+
+/* =========================
+   ARCADE SCROLLBAR – WEBKIT
+   ========================= */
+#bottom-right::-webkit-scrollbar {
+  width: 14px;
+}
+
+#bottom-right::-webkit-scrollbar-track {
+  background: #000;
+  border-left: 3px solid #1888b0;
+}
+
+#bottom-right::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #00f6ff,
+    #00bcd4
+  );
+  border: 3px solid #000;
+  box-shadow:
+    inset 0 0 6px #00f6ff,
+    0 0 6px #00f6ff;
+}
+
+/* hover efecto arcade */
+#bottom-right::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #7ef3ff,
+    #00f6ff
+  );
+}
+
+/* =========================
+   FIREFOX
+   ========================= */
+#bottom-right {
+  scrollbar-color: #00f6ff #000;
+  scrollbar-width: thin;
+}
+
+/* =========================
+   ARCADE SCROLLBAR – COLUMNAS
+   ========================= */
+.column::-webkit-scrollbar {
+  width: 14px;
+}
+
+.column::-webkit-scrollbar-track {
+  background: #000;
+  border-left: 3px solid #1888b0;
+}
+
+.column::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #00f6ff,
+    #00bcd4
+  );
+  border: 3px solid #000;
+  box-shadow:
+    inset 0 0 6px #00f6ff,
+    0 0 6px #00f6ff;
+}
+
+.column::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #7ef3ff,
+    #00f6ff
+  );
+}
+
+/* FIREFOX */
+.column {
+  scrollbar-color: #00f6ff #000;
+  scrollbar-width: thin;
+}
+
+/* =====================================
+   SCROLLBAR ARCADE POR COLUMNA
+   ===================================== */
+
+/* 🟡 COLUMNA 1 — AMARILLO */
+.column:nth-child(1)::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ffd700, #ffec7a);
+  box-shadow:
+    inset 0 0 6px #ffd700,
+    0 0 6px #ffd700;
+}
+
+/* 🟣 COLUMNA 2 — VIOLETA */
+.column:nth-child(2)::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #cda3ff, #9b59ff);
+  box-shadow:
+    inset 0 0 6px #cda3ff,
+    0 0 6px #cda3ff;
+}
+
+/* 🔵 COLUMNA 3 — CYAN */
+.column:nth-child(3)::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7ef3ff, #00f6ff);
+  box-shadow:
+    inset 0 0 6px #00f6ff,
+    0 0 6px #00f6ff;
+}
+
+/* FIREFOX */
+.column:nth-child(1) {
+  scrollbar-color: #ffd700 #000;
+}
+
+.column:nth-child(2) {
+  scrollbar-color: #cda3ff #000;
+}
+
+.column:nth-child(3) {
+  scrollbar-color: #00f6ff #000;
+}
+
+.gap {
+  display: block;
+  height: 10px; /* ajustá a gusto */
+}
+
+.ratings-title {
+  position: absolute;
+  top: 25px; /* lo subís/bajás desde acá */
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 1rem;
+  color: #f2fa00;
+  text-shadow: 0 0 3px #f2fa00;
+  letter-spacing: 2px;
+}
+
+
+.ratings-page {
+  transition: opacity 0.2s ease;
+height: 100%;
+}
+
+.alt-page {
+  height: 100%;
+}
+
+.ratings-arrow {
+  position: absolute;
+  top: 13px;
+  right: 142px;
+
+  cursor: pointer;
+  font-size: 1.6rem; /* 👈 podés subir/bajar */
+
+  color: #f2fa00;
+
+  text-shadow:
+    0 0 4px #f2fa00,
+    0 0 8px #f2fa00,
+    0 0 4px #f2fa00; /* 👈 intensidad del glow */
+
+  transition: transform 0.15s ease, text-shadow 0.15s ease;
+}
+
+.ratings-arrow.left {
+  left: 142px;
+  right: auto;
+}
+
+.ratings-arrow.right {
+  right: 142px;
+}
+
+.ratings-arrow:hover {
+  transform: scale(1.2); /* 👈 tamaño al hover */
+  text-shadow:
+    0 0 6px #f2fa00,
+    0 0 12px #f2fa00,
+    0 0 18px #f2fa00;
+}
+
+.column-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 18px;
+  margin: 10px 0 10px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* opcional: color por columna (combina con lo que ya hiciste) */
+.column:nth-child(1) .column-title {
+  color: #ffd700;
+}
+
+.column:nth-child(2) .column-title {
+  color: #cda3ff;
+}
+
+.column:nth-child(3) .column-title {
+  color: #7ef3ff;
+}
+
+.column-header {
+  height: 6px;
+}
+
+.comparison-box {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+  gap:30px;
+}
+
+#comp-result {
+  font-size: 1.4rem;
+  margin-top: 55px;
+  color: #f2fa00;
+  text-shadow: 0 0 3px #f2fa00;
+  text-align:center;
+}
+
+#comp-btn {
+  cursor:pointer;
+  padding:10px 20px;
+  margin-top: 15px;
+  border:4px solid #1888b0;
+  background:#000;
+  color:#00f6ff;
+  text-shadow:0 0 4px #00f6ff;
+}

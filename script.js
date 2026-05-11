@@ -1,0 +1,796 @@
+let currentPlayer = null;
+let scoutMode = false;
+let typingTimeouts = []; // 🔥 agregado
+let ratingsPage = 0;
+let currentColIndex = 0;
+let currentRowIndex = 0;
+
+const SCOUT_DATA = {
+  "RICHIE SAUNDERS": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. BUENA ALTURA Y CAPACIDAD ATLETICA</p>
+    <p>. MAESTRO DEL CATCH AND SHOOT</p>
+    <p>. 44.8 3P% DESDE LAS ESQUINAS</p>
+    <p>. BUEN JUEGO SIN BALON Y EN FASTBREAK</p>
+    <p>. BUEN DEFINIDOR: 64.8% EN LA PINTURA</p>
+    <p>. JUEGA CON ENERGIA EN AMBOS COSTADOS</p>
+    <p>. BUEN APORTE EN REBOTES</p>
+    <p>. POCA CREACION CON EL BALON O PASE</p>
+    <p>. GRAVE LESION DE RODILLA</p>
+    <p>. PROYECTO "VETERANO" -24 AÑOS-</p>
+    <p>. VALOR: 2° RONDA</p>
+  `,
+  "default": `
+    <h3>SCOUT REPORT</h3>
+    <p>SCOUT NO DISPONIBLE</p>
+  `,
+
+  "AJ DYBANTSA": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. ALTURA Y CAPACIDAD ATLETICA ELITE</p>
+    <p>. ENORMES RECURSOS ANOTADORES</p>
+    <p>. MANEJO + EXPLOSION + AGRESIVIDAD</p>
+    <p>. EXCELENTE TIRO A MEDIA DISTANCIA</p>
+    <p>. VIVE CERCA DEL ARO Y EN LA LINEA</p>
+    <p>. TOQUE DUDOSO Y MAL TRIPLERO</p>
+    <p>. TIENE DESTELLOS DE BUEN PASADOR</p>
+    <p>. DEFENSA IRREGULAR CON DISTRACCIONES</p>
+    <p>. MUY BUEN REBOTERO EN EL ARO PROPIO</p>
+    <p>. CONDICIONES PARA BRILLAR EN DEFENSA</p>
+    <p>. VALOR: PRIMER PICK DEL DRAFT</p>
+  `,
+
+  "ADAY MARA": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. ALTURA IDEAL Y BUEN FISICO</p>
+    <p>. ALGO LENTO DE MOVIMIENTOS</p>
+    <p>. GRANDES RECURSOS PARA SU TAMAÑO</p>
+    <p>. DEFINIDOR LETAL; TOQUE + ALTURA</p>
+    <p>. MUY BUEN PASADOR; GRAN VISION</p>
+    <p>. TODAVIA SIN TIRO MAS ALLA DE 3 MTS.</p>
+    <p>. MAL TIRADOR DE LIBRES</p>
+    <p>. PROTECTOR DE ARO; TAPAS + PRESENCIA</p>
+    <p>. NO ES EL REBOTERO MAS SEGURO</p>
+    <p>. DUDAS DE CARA A LA VELOCIDAD NBA</p>
+    <p>. VALOR: PICK DE LOTERIA</p>
+  `,
+
+  "HENRI VEESAAR": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. GRAN ALTURA; NO TAN POTENTE</p>
+    <p>. MAL ATLETA EN TERMINOS NBA</p>
+    <p>. ESPECIALISTA TRIPLERO; PICK AND POP</p>
+    <p>. ALREDEDOR DEL 60% EN TIROS LIBRES</p>
+    <p>. BUEN TOQUE ALREDEDOR DEL ARO</p>
+    <p>. CORRECTO PASADOR; POCAS PERDIDAS</p>
+    <p>. EVIDENTES PROBLEMAS DEFENSIVOS</p>
+    <p>. NO PROTEGE EL ARO; POCAS TAPAS</p>
+    <p>. SIN GRAN VELOCIDAD PERIMETRAL</p>
+    <p>. NO ES EL REBOTERO MAS SEGURO</p>
+    <p>. VALOR: 2° RONDA</p>
+  `,
+
+  "MALIK RENEAU": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. ALTURA DE 4, VELOCIDAD DE 5</p>
+    <p>. SIN BUENA EXPLOSION ATLETICA</p>
+    <p>. CREA DE FRENTE Y DE ESPALDAS</p>
+    <p>. BUEN MANEJO Y MOVIMIENTOS DE PIES</p>
+    <p>. DEFINIDOR DE TOQUE, NO DE POTENCIA</p>
+    <p>. FISICO; VIVE EN LA LINEA, ANOTA FTs</p>
+    <p>. TIRO MEJORADO: 35% EN LA 2025-26</p>
+    <p>. BUEN PASADOR, BUENA LECTURA</p>
+    <p>. DEFENSOR DE MUY BAJO IMPACTO</p>
+    <p>. MAL REBOTERO Y NO PROTEGE EL ARO</p>
+    <p>. VALOR: UNDRAFTED</p>
+  `,
+
+  "CALEB WILSON": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. ALTURA Y CAPACIDAD ATLETICA IDEAL</p>>
+    <p>. UNA MAQUINA DE VOLCAR LA BOLA</p>
+    <p>. AMENAZA CONSTANTE EN TRANSICION</p>
+    <p>. ABUSA DEL FADEAWAY EN POSTE BAJO</p>
+    <p>. SIN MANEJO PARA CREAR DE FRENTE</p>
+    <p>. MAL TIRADOR, SIN BUENA MECANICA</p>
+    <p>. TALENTO PASADOR PERO FRENA LA BOLA</p>
+    <p>. POTENCIAL DEFENSIVO DE ELITE</p>
+    <p>. DOMINA REBOTE; SUMA STL Y BLK</p>
+    <p>. BUEN DEFENSOR DE 1 VS. 1</p>
+    <p>. VALOR: PICK TOP 5</p>
+  `,
+
+  "JOSHUA JEFFERSON": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. SIN GRAN ALTURA PERO FUERTE</p>
+    <p>. LE FALTA VELOCIDAD Y EXPLOSION</p>
+    <p>. JUGADOR TALENTOSO CON EL BALON</p>
+    <p>. CREA DESDE POSTE BAJO Y ALTO</p>
+    <p>. MUY BAJOS % COMO DEFINIDOR</p>
+    <p>. CAPAZ DE ANOTAR TRIPLES ABIERTOS</p>
+    <p>. SU MAYOR VIRTUD: PASE Y LECTURA</p>
+    <p>. DEFENSOR INTELIGENTE Y DEDICADO</p>
+    <p>. MUY BUENA SUMA DE REBOTES Y ROBOS</p>
+    <p>. DEFENSA LIMITADA POR CAP. ATLETICA</p>
+    <p>. VALOR: FINAL 1° RONDA/2° RONDA</p>
+  `,
+
+  "TARRIS REED": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. BUENA ALTURA, MUY FUERTE</p>
+    <p>. MAS MOVIL QUE VELOZ O EXPLOSIVO</p>
+    <p>. PIVOT OLD-SCHOOL: POTENCIA Y POSTE</p>
+    <p>. GRANDES MOVIMIENTOS DE ESPALDAS</p>
+    <p>. ANOTA DE ZURDA Y DERECHA</p>
+    <p>. BUEN PASADOR; POCAS PERDIDAS</p>
+    <p>. SIN TIRO DE MEDIA NI TRES PUNTOS</p>
+    <p>. SOLO UN 60% EN TIROS LIBRES</p>
+    <p>. DOMINA EL REBOTE EN AMBOS AROS</p>
+    <p>. DEFENSA LIMITADA POR CAP. ATLETICA</p>
+    <p>. VALOR: 2° RONDA</p>
+  `,
+
+  "CAM BOOZER": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. ALTURA DE 4; POTENCIA DE 5</p>
+    <p>. MUY FUERTE; NO SUPER ALETICO</p>
+    <p>. UN TORO PARA ATACAR EL ARO</p>
+    <p>. LETAL VS. MISMATCHES EN LA PINTURA</p>
+    <p>. NO TAN DOMINANTE VS. 5s GRANDES</p>
+    <p>. SOLIDO 3P A PIE FIRME; METE LIBRES</p>
+    <p>. EXCELENTE PASADOR; 2 ASIS POR 1 TOV</p>
+    <p>. ENDEBLE DEFENSA INTERIOR; SIN BLK</p>
+    <p>. SIN GRAN AGILIDAD PARA EL PERIMETRO</p>
+    <p>. MUY BUEN REBOTERO EN AMBOS AROS</p>
+    <p>. VALOR: PICK TOP 3</p>
+  `,
+
+  "TREVON BRAZILE": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. ALTURA Y EXPLOSION IDEAL PARA EL 4</p>
+    <p>. LE FALTA POTENCIA Y JUEGO FISICO</p>
+    <p>. SOLIDO TRIPLERO A PIE FIRME</p>
+    <p>. DEFINIDOR EXPLOSIVO, VOLCADOR</p>
+    <p>. ANOTA MUY SEGUIDO EN TRANSICION</p>
+    <p>. SIN JUEGO DE POSTE; NO CREA TIROS</p>
+    <p>. GRANDES HERRAMIENTAS DEFENSIVAS</p>
+    <p>. SUMA ROBOS, TAPONES Y REBOTES</p>
+    <p>. SIN POTENCIA PARA DEFENDER 5s NBA</p>
+    <p>. MUY IRREGULAR; DESAPARECE, VOLATIL</p>
+    <p>. VALOR: 2° RONDA/UNDRAFTED</p>
+  `,
+
+  "BENNETT STIRTZ": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. BASE PURO, CON PASE Y TIRO</p>
+    <p>. SIN BUENA ALTURA O POTENCIA</p>
+    <p>. BUEN TIRADOR DE MEDIA Y 3 PUNTOS</p>
+    <p>. 3P% IRREGULAR = DIFICULTAD DE TIROS</p>
+    <p>. MUY BUEN PASADOR; CREATIVO, PRECISO</p>
+    <p>. CREADOR DESDE EL PICK AND ROLL</p>
+    <p>. NO GENERA SEPARACION EN 1 VS. 1</p>
+    <p>. SU ESFUERZO DEFENSIVO NO ALCANZA</p>
+    <p>. CLARA DESVENTAJA FISICA VS. NBA</p>
+    <p>. MAL REBOTERO, INCLUSO EN LA NCAA</p>
+    <p>. VALOR: 2° RONDA</p>
+  `,
+
+  "YAXEL LENDEBORG": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. GRAN ALTURA PARA 3/4; BUEN ATLETA</p>
+    <p>. CORRECTO TRIPLERO A PIE FIRME</p>
+    <p>. ANOTA EN TRANSICION; BUEN DEFINIDOR</p>
+    <p>. SIN EL MEJOR DRIBLE PARA CREAR</p>
+    <p>. FENOMENAL PASADOR PARA SU ALTURA</p>
+    <p>. +3 ASISTENCIAS POR CADA PERDIDA</p>
+    <p>. EXCELENTE JUGADOR DEFENSIVO</p>
+    <p>. DEFIENDE 3 O 4 POSICIONES</p>
+    <p>. MUY BUEN REBOTERO; SUMA STL+BLK</p>
+    <p>. LA EDAD (24) LE QUITA POTENCIAL</p>
+    <p>. VALOR: PICK DE LOTERIA</p>
+  `,
+
+  "MIKEL BROWN": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. 1-2 SUPER VELOZ Y EXPLOSIVO</p>
+    <p>. ANOTADOR NATURAL CON Y SIN BALON</p>
+    <p>. GRAN TRIPLERO, CON ALCANCE NBA</p>
+    <p>. 3P% BAJO = MALA SELECCION DE TIRO</p>
+    <p>. BUENA MECANICA; TIRA EN MOVIMIENTO</p>
+    <p>. IGUAL DE PELIGROSO ATACANDO EL ARO</p>
+    <p>. VELOZ Y CON MANEJO; BUEN DEFINIDOR</p>
+    <p>. VERTICAL, AGRESIVO; MUCHOS FTA</p>
+    <p>. PASADOR "FLASHY" PERO ERRATICO</p>
+    <p>. MAL DEFENSOR; LE FALTA POTENCIA</p>
+    <p>. VALOR: PICK DE LOTERIA</p>
+  `,
+
+  "BRAYDEN BURRIES": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. ALGO BAJO PARA LA POSICICION DE 1-2</p>
+    <p>. FUERTE PERO NO SUPER EXPLOSIVO</p>
+    <p>. EXCELENTE TRIPLERO; BUENA MECANICA</p>
+    <p>. FLUIDO PARA TIRAR EN MOVIMIENTO</p>
+    <p>. NO BRILLA EN EL JUEGO CON BALON</p>
+    <p>. PROMEDIO COMO PASADOR Y SLASHER</p>
+    <p>. MUY PELIGROSO EN TRANSICION</p>
+    <p>. JUEGO MADURO, INTELIGENTE, TEMPLADO</p>
+    <p>. DEFENSOR COMPLETO Y CON ENERGIA</p>
+    <p>. VA AL REBOTE; VELOZ PARA ROTACIONES</p>
+    <p>. VALOR: PICK TOP 10</p>
+  `,
+
+  "MOREZ JOHNSON": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. ALTURA Y FISICO IDEAL PARA EL 4</p>
+    <p>. BUEN ATLETA Y SUMAMENTE FUERTE</p>
+    <p>. ANOTA EN LA PINTURA POR POTENCIA</p>
+    <p>. PERO LE FALTA TOQUE Y TECNICA</p>
+    <p>. GRAN REBOTERO OFENSIVO</p>
+    <p>. BUENOS % EN LIBRES Y 3P EN ESQUINA</p>
+    <p>. SIN APORTE COMO PASADOR/CREADOR</p>
+    <p>. ESPECIALISTA DEFENSIVO; VERSATIL</p>
+    <p>. DEFIENDE PERIMETRO + REBOTE + TAPAS</p>
+    <p>. ES FISICO Y JUEGA CON MUCHA ENERGIA</p>
+    <p>. VALOR: PICK DE PRIMERA RONDA</p>
+  `,
+
+  "KINGSTON FLEMINGS": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. BAJO PERO SUMAMENTE VELOZ</p>
+    <p>. UN RAYO PARA ATACAR EL ARO</p>
+    <p>. SOLIDO DEFINIDOR PARA SU ALTURA</p>
+    <p>. ESPECIALISTA EN TIRO DE MEDIA</p>
+    <p>. TIRA POCO Y DEJA DUDAS DESDE 3P</p>
+    <p>. MALA MECANICA DE LANZAMIENTO</p>
+    <p>. MUY BUEN PASADOR; BASE NATURAL</p>
+    <p>. 3 ASISTENCIAS POR CADA PERDIDA</p>
+    <p>. DEFENSOR INTENSO; SUMA STL. Y REB.</p>
+    <p>. LIMITADO POR SU FALTA DE ALTURA</p>
+    <p>. VALOR: PICK DE PRIMERA RONDA</p>
+  `,
+
+  "CHRIS CENAC": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. GRAN TAMAÑO PARA JUGAR DE 4-5</p>
+    <p>. BUENA MOVILIDAD PARA SU ESTATURA</p>
+    <p>. MUY BUEN TIRO DE MEDIA DISTANCIA</p>
+    <p>. POTENCIAL TRIPLERO; HOY IRREGULAR</p>
+    <p>. NO ES AMENAZA EN LA PINTURA</p>
+    <p>. SIN JUEGO CON EL BALON O CREACION</p>
+    <p>. VELOZ PARA DEFENDER EL PERIMETRO</p>
+    <p>. GRAN REBOTERO EN AMBOS TABLEROS</p>
+    <p>. NO ES EL JUGADOR MAS FISICO</p>
+    <p>. BAJISIMA SUMA DE TAPONES</p>
+    <p>. VALOR: PICK DE LOTERIA</p>
+  `,
+
+  "KOA PEAT": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. TAMAÑO IDEAL PARA EL ROL DE 3-4</p>
+    <p>. SOLIDO ATLETA; FUERTE, POTENTE</p>
+    <p>. AGRESIVO, FISICO PARA ATACAR EL ARO</p>
+    <p>. IRREGULAR COMO DEFINIDOR</p>
+    <p>. FUERZA DISPAROS INCOMODOS</p>
+    <p>. MUCHO TIRO DE MEDIA, CON BAJOS %</p>
+    <p>. HOY, SIN DISTANCIA NBA EN EL TIRO</p>
+    <p>. EXCELENTE PASADOR Y BUEN DRIBLE</p>
+    <p>. BUEN DEFENSOR PERIMETRAL VS. 3/4</p>
+    <p>. BUEN REBOTERO;  BAJO EN TAPONES</p>
+    <p>. VALOR: PICK DE PRIMERA RONDA</p>
+  `,
+
+  "NATE AMENT": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. ALTURA + VELOCIDAD + MANEJO</p>
+    <p>. CREATIVO CON EL BALON, BUEN DRIBLE</p>
+    <p>. MUY BUEN PASADOR PARA SU ALTURA</p>
+    <p>. TIRO IRREGULAR DE MEDIA Y LARGA</p>
+    <p>. SIN LA MECANICA MAS FLUIDA O PURA</p>
+    <p>. LE FALTAN KILOS; MAL DEFINIDOR</p>
+    <p>. GRAN GENERADOR DE TIROS LIBRES</p>
+    <p>. PELIGROSO EN TRANSICION</p>
+    <p>. DEFENSOR VERSATIL; BUEN REBOTERO</p>
+    <p>. LIMITADO POR FALTA DE POTENCIA</p>
+    <p>. VALOR: PICK DE LOTERIA</p>
+  `,
+
+  "CHRISTIAN ANDERSON": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. BASE BAJO Y SIN GRAN EXPLOSION</p>
+    <p>. EXCELENTE TIRADOR DE TRES PUNTOS</p>
+    <p>. MECANICA DE TIRO IDEAL</p>
+    <p>. TIRO CERTERO EN MOVIMIENTO</p>
+    <p>. MUY LIMITADO EN LA PINTURA</p>
+    <p>. BUEN PASE Y JUEGO DE PICK AND ROLL</p>
+    <p>. SIN HERRAMIENTAS DEFENSIVAS...</p>
+    <p>. PERO COMPITE Y PRESIONA AL RIVAL</p>
+    <p>. BASE DE CARACTER CON UN ROL CLARO</p>
+    <p>. LIDERO EL BIG 12 EN MINUTOS JUGADOS</p>
+    <p>. VALOR: PICK DE PRIMERA RONDA</p>
+  `,
+
+  "DARRYN PETERSON": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. BUENA ALTURA Y CAPACIDAD ATLETICA</p>
+    <p>. LETAL DE MEDIA Y LARGA DISTANCIA</p>
+    <p>. ANOTADOR PURO; SHOTMAKER</p>
+    <p>. BUEN DEFINIDOR CON TOQUE</p>
+    <p>. NO PISA TANTO LA PINTURA</p>
+    <p>. SIN TANTA CREACION CON LA BOLA</p>
+    <p>. POCO PASE; RECIBE PARA TIRAR </p>
+    <p>. DEFENSOR CORRECTO, NO DECISIVO</p>
+    <p>. PROBLEMAS CON LAS LESIONES</p>
+    <p>. DEBE GANAR POTENCIA Y KILOS</p>
+    <p>. VALOR: PICK TOP 3</p>
+  `,
+
+  "QUADIR COPELAND": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. ALTURA Y VELOCIDAD PARA LA POSICION</p>
+    <p>. ESPECIALISTA EN ATACAR EL ARO</p>
+    <p>. RECURSOS + PACIENCIA EN LA PINTURA</p>
+    <p>. AUNQUE SIN GRAN TOQUE/FLOTADORA</p>
+    <p>. CREATIVO Y MUY BUEN PASADOR</p>
+    <p>. VIENE DE SU MEJOR AÑO TRIPLERO...</p>
+    <p>. PERO SOLO UN 28.5% EN 3P EN 4 AÑOS</p>
+    <p>. SUMA UNA BUENA CANTIDAD DE ROBOS</p>
+    <p>. DEFENSOR LIVIANO, CON POCO REBOTE</p>
+    <p>. ES MUY ALTO PERO LE FALTAN KILOS</p>
+    <p>. VALOR: 2° RONDA/UNDRAFTED</p>
+  `,
+
+  "KEATON WAGLER": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. ALTO Y HABIL CON EL BALON</p>
+    <p>. LE FALTA EXPLOSION Y POTENCIA</p>
+    <p>. MUY BUEN TIRADOR DE TRES PUNTOS</p>
+    <p>. SIN JUEGO DE MEDIA DISTANCIA</p>
+    <p>. CREATIVO Y PRECISO COMO DEFINIDOR</p>
+    <p>. JUEGA A SU RITMO; POCAS PERDIDAS</p>
+    <p>. PELIGROSO DESDE EL PICK AND ROLL</p>
+    <p>. PASADOR CORRECTO, CON BUENA VISION</p>
+    <p>. NO ANOTA EN TRANSICION</p>
+    <p>. SIN GRAN POTENCIAL DEFENSIVO</p>
+    <p>. VALOR: PICK TOP 10</p>
+  `,
+
+  "DARRION WILLIAMS": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. TANQUE DE ENORME POTENCIA</p>
+    <p>. CONSOLIDADO COMO TRIPLERO</p>
+    <p>. SIN LA MECANICA DE TIRO MAS FLUIDA</p>
+    <p>. MUY BUEN PASADOR Y BUEN DRIBLE</p>
+    <p>. SIN EXPLOSION ATLETICA NI VELOCIDAD</p>
+    <p>. JUEGA EN POSTE BAJO PERO INEFICAZ</p>
+    <p>. MAL DEFINIDOR: 42.3% EN DOBLES</p>
+    <p>. JUGADOR FISICO Y CON BUENAS MANOS</p>
+    <p>. VERSATIL PERO DEJA DUDAS EN DEFENSA</p>
+    <p>. BUEN REBOTERO EN EL TABLERO PROPIO</p>
+    <p>. VALOR: 2° RONDA/UNDRAFTED</p>
+  `,
+
+  "DONOVAN ATWELL": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. BUENA ALTURA PARA ESCOLTA</p>
+    <p>. SIN GRAN POTENCIA O EXPLOSION</p>
+    <p>. TRIPLERO LETAL EN CATCH AND SHOOT </p>
+    <p>. 45.8 3P% EN +8 INTENTOS</p>
+    <p>. MECANICA RAPIDA; ALCANCE NBA</p>
+    <p>. SIN APORTE EN EL RESTO DEL ATAQUE</p>
+    <p>. NO CREA TIROS; NO PISA LA PINTURA</p>
+    <p>. MUY BUEN DEFENSOR VS. GUARDS</p>
+    <p>. SIN POTENCIA PARA ALEROS FUERTES</p>
+    <p>. MUY MAL REBOTERO</p>
+    <p>. VALOR: 2° RONDA/UNDRAFTED</p>
+  `,
+
+  "ISAIAH EVANS": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. EXCELENTE ALTURA PARA ESCOLTA</p>
+    <p>. BUEN ATLETA PERO MUY FLACO</p>
+    <p>. TRIPLERO LETAL; GRAN MECANICA </p>
+    <p>. ANOTA EN MOVIMIENTO; ALCANCE NBA</p>
+    <p>. DESTELLOS COMO DEFINIDOR</p>
+    <p>. BUENOS CORTES SIN BALON</p>
+    <p>. LIMITADO POR FALTA DE KILOS</p>
+    <p>. POCO PASE; FUERZA MALOS TIROS</p>
+    <p>. BUENA ENERGIA PARA DEFENDER</p>
+    <p>. DOMINADO POR RIVALES FUERTES</p>
+    <p>. VALOR: FINAL 1° RONDA/2° RONDA</p>
+  `,
+
+  "KEBA KEITA": `
+    <h3>SCOUTING REPORT</h3>
+    <p>. PIVOT MUY FUERTE Y ATLETICO</p>
+    <p>. EXPLOSIVO COMO DEFINIDOR</p>
+    <p>. ANOTA DE ALLEY-OOPS Y PUTBACKS</p>
+    <p>. BAJISIMO NIVEL TECNICO CON EL BALON</p>
+    <p>. SIN TIRO DE MEDIA O LARGA DISTANCIA</p>
+    <p>. NO APORTA COMO PASADOR O CREADOR</p>
+    <p>. DEFENSOR FISICO Y COMPETITIVO</p>
+    <p>. BUEN APORTE EN REBOTES Y TAPONES</p>
+    <p>. PIERDE ANTE PIVOTS MAS ALTOS</p>
+    <p>. SIN GRAN AGILIDAD PERIMETRAL</p>
+    <p>. VALOR: UNDRAFTED</p>
+  `,
+
+};
+
+const listsContainer = document.getElementById("player-lists");
+const bottomLeft = document.getElementById("bottom-left");
+const bottomRight = document.getElementById("bottom-right");
+const scoutTextEl = document.getElementById("scout-text");
+
+const columns = [[], [], []];
+players.forEach((p, i) => columns[i % 3].push(p));
+
+const headerGradients = [
+  "linear-gradient(90deg,#ffd700,#ffec7a)",
+  "linear-gradient(90deg,#9b59ff,#cda3ff)",
+  "linear-gradient(90deg,#00f7ff,#7ef3ff)"
+];
+
+const columnTitles = ["ON-BALL", "OFF-BALL", "BIGS"];
+
+columns.forEach((col, idx) => {
+  const c = document.createElement('div');
+  c.className = 'column';
+
+const h = document.createElement('div');
+h.className = 'column-header';
+h.style.background = headerGradients[idx];
+c.appendChild(h);
+
+// 🔥 NUEVO: título
+const title = document.createElement('div');
+title.className = 'column-title';
+title.textContent = columnTitles[idx];
+c.appendChild(title);
+const bottomBar = document.createElement('div');
+bottomBar.className = 'column-header';
+bottomBar.style.background = headerGradients[idx];
+c.appendChild(bottomBar);
+
+  col.forEach(pl => {
+const el = document.createElement('div');
+el.className = 'player-name';
+el.textContent = formatName(pl.name);
+
+el.dataset.col = idx;
+el.dataset.row = col.indexOf(pl);
+
+    if (idx === 0) el.style.color = '#ffd700';
+    if (idx === 1) el.style.color = '#cda3ff';
+    if (idx === 2) el.style.color = '#7ef3ff';
+
+    el.onclick = () => selectPlayer(pl, el);
+    c.appendChild(el);
+  });
+
+  listsContainer.appendChild(c);
+});
+
+function formatName(name) {
+  return name
+    .split(" ")
+    .map(word => {
+      // 🔥 si ya viene en mayúsculas y es corto → lo dejamos
+      if (word === word.toUpperCase() && word.length <= 2) {
+        return word;
+      }
+
+      const lower = word.toLowerCase();
+      return lower.charAt(0).toUpperCase() + lower.slice(1);
+    })
+    .join(" ");
+}
+
+function selectPlayer(player, el) {
+  currentPlayer = player;
+currentColIndex = parseInt(el.dataset.col);
+currentRowIndex = parseInt(el.dataset.row);
+  scoutMode = false;
+  scoutTextEl.textContent = "SCOUT";
+updateRatingsTitle();
+
+  // 🔥 cortar escritura si venía de scout
+  typingTimeouts.forEach(t => clearTimeout(t));
+  typingTimeouts = [];
+
+  document.querySelectorAll('.player-name')
+    .forEach(e => e.classList.remove('selected'));
+
+  el.classList.add('selected');
+
+ratingsPage = 0;
+
+bottomLeft.innerHTML = `
+  <div class="portrait-placeholder">
+    <img src="${player.img}" alt="${player.name}">
+  </div>
+
+  <div class="stat-box">
+    <div class="ratings-title" id="ratings-title">RATINGS</div>
+
+    <div class="ratings-page" data-page="0">
+      ${renderStats(player.stats)}
+    </div>
+
+    <div class="ratings-page" data-page="1" style="display:none;">
+      <div class="alt-page">
+        ${renderStats(player.shotStats || {})}
+      </div>
+    </div>
+
+    <div class="ratings-page" data-page="2" style="display:none;">
+      <div class="comparison-box">
+        <div id="comp-result">-</div>
+        <div id="comp-btn">COMP</div>
+      </div>
+    </div>
+
+    <div class="ratings-arrow left" onclick="prevRatingsPage()">◀</div>
+    <div class="ratings-arrow right" onclick="nextRatingsPage()">▶</div>
+  </div>
+`;
+
+// 👇 PEGAR ACÁ
+setTimeout(() => {
+  const btn = document.getElementById("comp-btn");
+  if (btn) {
+    btn.onclick = startComparison;
+  }
+}, 0);
+
+  renderNormalInfo(player);
+}
+
+function renderNormalInfo(player) {
+  bottomRight.innerHTML = `
+    <h3></h3>
+    <p>NOMBRE: ${player.name}</p>
+    <p>ALTURA: ${player.height}</p>
+    <p>NACIONALIDAD: ${player.country}</p>
+    <p>POSICION: ${player.position}</p>
+    <p>EQUIPO: ${player.team}</p>
+    <p>EDAD: ${player.age}</p>
+    <p>ATAQUE ${player.ataque}</p>
+    <p>DEFENSA ${player.defensa}</p>
+  `;
+}
+
+function renderStats(s) {
+  return `
+    <div class="stats-grid">
+      <div class="stats-column">
+        ${Object.entries(s).map(([key, val]) => `
+          <div class="stat-row">
+            <div class="stat-label">${key.toUpperCase()}:</div>
+            <div class="stat-bars">${renderSegments(val)}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+
+
+function renderSegments(v) {
+  return `
+    <div class="stat-bar">
+      <div class="stat-bar-fill" style="width:${v}%"></div>
+    </div>
+  `;
+}
+
+const randomNames = players.map(p => p.name);
+let compInterval = null;
+
+function startComparison() {
+  const resultEl = document.getElementById("comp-result");
+  if (!resultEl || !currentPlayer) return;
+
+  // limpiar si ya estaba corriendo
+  if (compInterval) clearInterval(compInterval);
+
+  let elapsed = 0;
+
+  compInterval = setInterval(() => {
+    const random = randomNames[Math.floor(Math.random() * randomNames.length)];
+    resultEl.textContent = random;
+
+    elapsed += 100;
+
+    if (elapsed >= 4000) {
+      clearInterval(compInterval);
+      resultEl.textContent = currentPlayer.comp || "-";
+    }
+
+  }, 100);
+}
+
+function nextRatingsPage() {
+  const pages = document.querySelectorAll('.ratings-page');
+
+  pages[ratingsPage].style.display = 'none';
+
+  ratingsPage = (ratingsPage + 1) % pages.length;
+
+  pages[ratingsPage].style.display = 'block';
+
+  updateRatingsTitle(); // 👈 clave
+}
+
+function prevRatingsPage() {
+  const pages = document.querySelectorAll('.ratings-page');
+
+  pages[ratingsPage].style.display = 'none';
+
+  ratingsPage = (ratingsPage - 1 + pages.length) % pages.length;
+
+  pages[ratingsPage].style.display = 'block';
+
+  updateRatingsTitle(); // 👈 clave
+}
+
+function updateSelection(colIndex, rowIndex) {
+  const columnEls = document.querySelectorAll('.column');
+  const targetColumn = columnEls[colIndex];
+
+  const playersEls = targetColumn.querySelectorAll('.player-name');
+  const targetEl = playersEls[rowIndex];
+
+  if (targetEl) {
+    targetEl.click();
+
+// 🔥 NUEVO: hacer scroll dentro de la columna
+const container = targetColumn;
+
+const offsetTop = targetEl.offsetTop;
+const offsetBottom = offsetTop + targetEl.offsetHeight;
+
+const visibleTop = container.scrollTop;
+const visibleBottom = visibleTop + container.clientHeight;
+
+// 🔥 SI ES EL PRIMERO → mostrar todo arriba (incluye título)
+if (rowIndex === 0) {
+  container.scrollTop = 0;
+  return;
+}
+
+// si está arriba del visible → subir
+if (offsetTop < visibleTop) {
+  container.scrollTop = offsetTop - 40;
+}
+
+// si está abajo del visible → bajar
+if (offsetBottom > visibleBottom) {
+  container.scrollTop = offsetBottom - container.clientHeight + 10;
+}
+  }
+}
+
+function updateRatingsTitle() {
+  const title = document.getElementById('ratings-title');
+  if (!title) return;
+
+const titles = ["RATINGS", "ANOTACION", "COMPARACION"];
+
+  title.textContent = titles[ratingsPage] || "RATINGS";
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const f = document.querySelector('.player-name');
+  if (f) f.click();
+});
+
+document.getElementById('scout-btn').onclick = () => {
+  if (!currentPlayer) return;
+
+  scoutMode = !scoutMode;
+
+  if (scoutMode) {
+    typeWriterHTML(
+      bottomRight,
+      SCOUT_DATA[currentPlayer.name] || SCOUT_DATA.default,
+      12
+    );
+    scoutTextEl.textContent = "DATOS";
+  } else {
+    // 🔥 cortar escritura al volver a stats
+    typingTimeouts.forEach(t => clearTimeout(t));
+    typingTimeouts = [];
+
+    renderNormalInfo(currentPlayer);
+    scoutTextEl.textContent = "SCOUT";
+  }
+};
+
+function typeWriterHTML(element, html, speed = 15) {
+  // 🔥 limpiar timeouts anteriores
+  typingTimeouts.forEach(t => clearTimeout(t));
+  typingTimeouts = [];
+
+  element.innerHTML = "";
+
+  const temp = document.createElement("div");
+  temp.innerHTML = html;
+
+  const nodes = temp.querySelectorAll("h3, p");
+
+  let currentNode = 0;
+
+  function typeNode() {
+    if (currentNode >= nodes.length) return;
+
+    const originalNode = nodes[currentNode];
+    const newNode = document.createElement(originalNode.tagName);
+
+    element.appendChild(newNode);
+
+    const text = originalNode.textContent;
+    let i = 0;
+
+    function typeChar() {
+      if (i < text.length) {
+        newNode.textContent += text.charAt(i);
+        i++;
+
+        const t = setTimeout(typeChar, speed);
+        typingTimeouts.push(t);
+
+      } else {
+        currentNode++;
+
+        const t = setTimeout(typeNode, 120);
+        typingTimeouts.push(t);
+      }
+    }
+
+    typeChar();
+  }
+
+  typeNode();
+}
+
+document.addEventListener('keydown', (e) => {
+  if (!currentPlayer) return;
+
+  let newCol = currentColIndex;
+  let newRow = currentRowIndex;
+
+  switch (e.key) {
+    case 'ArrowDown':
+      e.preventDefault();
+      if (newRow < columns[newCol].length - 1) {
+        newRow++;
+      }
+      break;
+
+    case 'ArrowUp':
+      e.preventDefault();
+      if (newRow > 0) {
+        newRow--;
+      }
+      break;
+
+    case 'ArrowRight':
+      e.preventDefault();
+      newCol = (newCol + 1) % columns.length;
+      newRow = Math.min(newRow, columns[newCol].length - 1);
+      break;
+
+    case 'ArrowLeft':
+      e.preventDefault();
+      newCol = (newCol - 1 + columns.length) % columns.length;
+      newRow = Math.min(newRow, columns[newCol].length - 1);
+      break;
+
+    default:
+      return;
+  }
+
+  updateSelection(newCol, newRow);
+});
