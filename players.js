@@ -3,7 +3,7 @@ const players = [
 {
   name: "AJ DYBANTSA",
   height: "2.06 M",
-  position: "GUARD",
+  position: "ESCOLTA",
   comp: "50% SHAI, 50% DEROZAN",
   country: "USA",
   age: "19",
