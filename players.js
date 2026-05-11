@@ -99,18 +99,18 @@ const players = [
   shotStats: { fastbreak:96, pintura:73, media:64, "3P ncaa":62, "3P nba":58, libres:58 }
 },
 {
-  name: "YAXEL LENDEBORG",
-  height: "2.06 M",
-  position: "ALERO",
-  comp: "PJ WASHINGTON CON PASE",
-  country: "REP. DOMINICANA",
-  age: "24",
-  team: "MICHIGAN",
-  ataque: "<br><span class='gap'></span>- 15.1 PPG | 20.4 USG% | 30.2 MIN<br>- 51.5 FG% |  37.2 3P% | 82.4 FT%<br>- 3.2 ASIS | 1.1 TOV",
-  defensa: "<br><span class='gap'></span>- 6.8 REB | 1.7 PF<br>- 1.1 STL | 1.2 BLK<br>- 83.7 D-RAT | 5.55 D-BPR",
-  img: "Lendeborg.png",
-  stats: { atletico:47, tiro:47, pase:69, creacion:33, defensa:67, fisico:95 },
-  shotStats: { fastbreak:80, pintura:60, media:45, "3P ncaa":70, "3P nba":60, libres:70 }
+  name: "CAMERON CARR",
+  height: "1.96 M",
+  position: "ESCOLTA",
+  comp: "TREY MURPHY DE 1.96",
+  country: "USA",
+  age: "21",
+  team: "BAYLOR",
+  ataque: "<br><span class='gap'></span>- 18.9 PPG | 25.3 USG% | 33.7 MIN<br>- 49.4 FG% |  37.4 3P% | 80.1 FT%<br>- 2.6 ASIS | 2.4 TOV",
+  defensa: "<br><span class='gap'></span>- 5.8 REB | 1.9 PF<br>- 0.9 STL | 1.3 BLK<br>- 101.8 D-RAT | 2.23 D-BPR",
+  img: "Carr.png",
+  stats: { atletico:55, tiro:75, pase:35, creacion:30, defensa:40, fisico:60 },
+  shotStats: { fastbreak:64, pintura:86, media:29, "3P ncaa":60, "3P nba":65, libres:59 }
 },
 {
   name: "CHRIS CENAC",
@@ -141,18 +141,18 @@ const players = [
   shotStats: { fastbreak:42, pintura:62, media:18, "3P ncaa":49, "3P nba":88, libres:84 }
 },
 {
-  name: "KOA PEAT",
-  height: "2.03 M",
+  name: "YAXEL LENDEBORG",
+  height: "2.06 M",
   position: "ALERO",
-  comp: "JULIUS RANDLE",
-  country: "USA",
-  age: "19",
-  team: "ARIZONA",
-  ataque: "<br><span class='gap'></span>- 14.1 PPG | 24.5 USG% | 27.8 MIN<br>- 52.8 FG% |  35.0 3P% | 62.3 FT%<br>- 2.6 ASIS | 1.6 TOV",
-  defensa: "<br><span class='gap'></span>- 5.6 REB | 2.2 PF<br>- 0.6 STL | 0.7 BLK<br>- 84.2 D-RAT | 3.73 D-BPR",
-  img: "Peat.png",
-  stats: { atletico:56, tiro:25, pase:69, creacion:50, defensa:50, fisico:80 },
-  shotStats: { fastbreak:80, pintura:59, media:57, "3P ncaa":40, "3P nba":2, libres:39 }
+  comp: "PJ WASHINGTON CON PASE",
+  country: "REP. DOMINICANA",
+  age: "24",
+  team: "MICHIGAN",
+  ataque: "<br><span class='gap'></span>- 15.1 PPG | 20.4 USG% | 30.2 MIN<br>- 51.5 FG% |  37.2 3P% | 82.4 FT%<br>- 3.2 ASIS | 1.1 TOV",
+  defensa: "<br><span class='gap'></span>- 6.8 REB | 1.7 PF<br>- 1.1 STL | 1.2 BLK<br>- 83.7 D-RAT | 5.55 D-BPR",
+  img: "Lendeborg.png",
+  stats: { atletico:47, tiro:47, pase:69, creacion:33, defensa:67, fisico:95 },
+  shotStats: { fastbreak:80, pintura:60, media:45, "3P ncaa":70, "3P nba":60, libres:70 }
 },
 {
   name: "MOREZ JOHNSON",
@@ -183,18 +183,18 @@ const players = [
   shotStats: { fastbreak:53, pintura:64, media:88, "3P ncaa":30, "3P nba":46, libres:56 }
 },
 {
-  name: "NATE AMENT",
-  height: "2.07 M",
+  name: "KOA PEAT",
+  height: "2.03 M",
   position: "ALERO",
-  comp: "ZACCHARIE RISACHER",
+  comp: "JULIUS RANDLE",
   country: "USA",
   age: "19",
-  team: "TENNESSEE",
-  ataque: "<br><span class='gap'></span>- 16.7 PPG | 29.0 USG% | 29.7 MIN<br>- 39.9 FG% |  33.3 3P% | 79.0 FT%<br>- 2.3 ASIS | 2.3 TOV",
-  defensa: "<br><span class='gap'></span>- 6.3 REB | 2.0 PF<br>- 1.0 STL | 0.6 BLK<br>- 92.1 D-RAT | 3.60 D-BPR",
-  img: "Ament.png",
-  stats: { atletico:54, tiro:32, pase:54, creacion:43, defensa:50, fisico:65 },
-  shotStats: { fastbreak:80, pintura:21, media:66, "3P ncaa":53, "3P nba":78, libres:89 }
+  team: "ARIZONA",
+  ataque: "<br><span class='gap'></span>- 14.1 PPG | 24.5 USG% | 27.8 MIN<br>- 52.8 FG% |  35.0 3P% | 62.3 FT%<br>- 2.6 ASIS | 1.6 TOV",
+  defensa: "<br><span class='gap'></span>- 5.6 REB | 2.2 PF<br>- 0.6 STL | 0.7 BLK<br>- 84.2 D-RAT | 3.73 D-BPR",
+  img: "Peat.png",
+  stats: { atletico:56, tiro:25, pase:69, creacion:50, defensa:50, fisico:80 },
+  shotStats: { fastbreak:80, pintura:59, media:57, "3P ncaa":40, "3P nba":2, libres:39 }
 },
 {
   name: "JOSHUA JEFFERSON",
@@ -225,18 +225,18 @@ const players = [
   shotStats: { fastbreak:95, pintura:75, media:65, "3P ncaa":87, "3P nba":49, libres:67 }
 },
 {
-  name: "ISAIAH EVANS",
-  height: "1.98 M",
-  position: "ESCOLTA",
-  comp: "BUDDY HIELD",
+  name: "NATE AMENT",
+  height: "2.07 M",
+  position: "ALERO",
+  comp: "ZACCHARIE RISACHER",
   country: "USA",
-  age: "20",
-  team: "DUKE",
-  ataque: "<br><span class='gap'></span>- 15.0 PPG | 24.9 USG% | 28.2 MIN<br>- 43.3 FG% |  36.1 3P% | 86.0 FT%<br>- 1.3 ASIS | 1.1 TOV",
-  defensa: "<br><span class='gap'></span>- 3.2 REB | 1.2 PF<br>- 0.7 STL | 0.7 BLK<br>- 86.3 D-RAT | 2.73 D-BPR",
-  img: "Evans.png",
-  stats: { atletico:53, tiro:75, pase:20, creacion:25, defensa:30, fisico:35 },
-  shotStats: { fastbreak:31, pintura:57, media:56, "3P ncaa":85, "3P nba":53, libres:61 }
+  age: "19",
+  team: "TENNESSEE",
+  ataque: "<br><span class='gap'></span>- 16.7 PPG | 29.0 USG% | 29.7 MIN<br>- 39.9 FG% |  33.3 3P% | 79.0 FT%<br>- 2.3 ASIS | 2.3 TOV",
+  defensa: "<br><span class='gap'></span>- 6.3 REB | 2.0 PF<br>- 1.0 STL | 0.6 BLK<br>- 92.1 D-RAT | 3.60 D-BPR",
+  img: "Ament.png",
+  stats: { atletico:54, tiro:32, pase:54, creacion:43, defensa:50, fisico:65 },
+  shotStats: { fastbreak:80, pintura:21, media:66, "3P ncaa":53, "3P nba":78, libres:89 }
 },
 {
   name: "HENRI VEESAAR",
@@ -267,18 +267,18 @@ const players = [
   shotStats: { fastbreak:90, pintura:86, media:25, "3P ncaa":85, "3P nba":49, libres:68 }
 },
 {
-  name: "RICHIE SAUNDERS",
-  height: "1.96 M",
+  name: "ISAIAH EVANS",
+  height: "1.98 M",
   position: "ESCOLTA",
-  comp: "AJ GREEN",
+  comp: "BUDDY HIELD",
   country: "USA",
-  age: "24",
-  team: "BYU",
-  ataque: "<br><span class='gap'></span>- 18.0 PPG | 24.3 USG% | 31.4 MIN<br>- 48.9 FG% |  37.6 3P% | 81.7 FT%<br>- 2.1 ASIS | 1.6 TOV",
-  defensa: "<br><span class='gap'></span>- 5.8 REB | 2.2 PF<br>- 1.7 STL | 0.3 BLK<br>- 97.6 D-RAT | 1.88 D-BPR",
-  img: "Richie.png",
-  stats: { atletico:45, tiro:68, pase:25, creacion:30, defensa:40, fisico:45 },
-  shotStats: { fastbreak:86, pintura:84, media:32, "3P ncaa":81, "3P nba":62, libres:60 }
+  age: "20",
+  team: "DUKE",
+  ataque: "<br><span class='gap'></span>- 15.0 PPG | 24.9 USG% | 28.2 MIN<br>- 43.3 FG% |  36.1 3P% | 86.0 FT%<br>- 1.3 ASIS | 1.1 TOV",
+  defensa: "<br><span class='gap'></span>- 3.2 REB | 1.2 PF<br>- 0.7 STL | 0.7 BLK<br>- 86.3 D-RAT | 2.73 D-BPR",
+  img: "Evans.png",
+  stats: { atletico:53, tiro:75, pase:20, creacion:25, defensa:30, fisico:35 },
+  shotStats: { fastbreak:31, pintura:57, media:56, "3P ncaa":85, "3P nba":53, libres:61 }
 },
 {
   name: "TARRIS REED",
@@ -309,18 +309,18 @@ const players = [
   shotStats: { fastbreak:19, pintura:37, media:73, "3P ncaa":80, "3P nba":75, libres:37 }
 },
 {
-  name: "DONOVAN ATWELL",
+  name: "RICHIE SAUNDERS",
   height: "1.96 M",
   position: "ESCOLTA",
-  comp: "JORDAN HAWKINS",
+  comp: "AJ GREEN",
   country: "USA",
-  age: "23",
-  team: "TEXAS TECH",
-  ataque: "<br><span class='gap'></span>- 13.5 PPG | 15.0 USG% | 34.6 MIN<br>- 46.3 FG% |  45.8 3P% | 84.1 FT%<br>- 0.8 ASIS | 0.4 TOV",
-  defensa: "<br><span class='gap'></span>- 3.2 REB | 2.3 PF<br>- 1.2 STL | 0.1 BLK<br>- 98.0 D-RAT | 1.16 D-BPR",
-  img: "Atwell.png",
-  stats: { atletico:25, tiro:75, pase:10, creacion:5, defensa:65, fisico:40 },
-  shotStats: { fastbreak:4, pintura:5, media:37, "3P ncaa":93, "3P nba":92, libres:30 }
+  age: "24",
+  team: "BYU",
+  ataque: "<br><span class='gap'></span>- 18.0 PPG | 24.3 USG% | 31.4 MIN<br>- 48.9 FG% |  37.6 3P% | 81.7 FT%<br>- 2.1 ASIS | 1.6 TOV",
+  defensa: "<br><span class='gap'></span>- 5.8 REB | 2.2 PF<br>- 1.7 STL | 0.3 BLK<br>- 97.6 D-RAT | 1.88 D-BPR",
+  img: "Richie.png",
+  stats: { atletico:45, tiro:68, pase:25, creacion:30, defensa:40, fisico:45 },
+  shotStats: { fastbreak:86, pintura:84, media:32, "3P ncaa":81, "3P nba":62, libres:60 }
 },
 {
   name: "TREVON BRAZILE",
@@ -351,18 +351,18 @@ const players = [
   shotStats: { fastbreak:7, pintura:67, media:85, "3P ncaa":55, "3P nba":65, libres:60 }
 },
 {
-  name: "DARRION WILLIAMS",
-  height: "1.98 M",
-  position: "ALERO",
-  comp: "DAVID RODDY",
+  name: "DONOVAN ATWELL",
+  height: "1.96 M",
+  position: "ESCOLTA",
+  comp: "JORDAN HAWKINS",
   country: "USA",
   age: "23",
-  team: "NC STATE",
-  ataque: "<br><span class='gap'></span>- 14.0 PPG | 24.6 USG% | 30.0 MIN<br>- 41.4 FG% |  40.4 3P% | 77.3 FT%<br>- 2.8 ASIS | 1.5 TOV",
-  defensa: "<br><span class='gap'></span>- 4.6 REB | 2.5 PF<br>- 1.1 STL | 0.3 BLK<br>- 100.9 D-RAT | 1.88 D-BPR",
-  img: "Darrion.png",
-  stats: { atletico:20, tiro:46, pase:71, creacion:33, defensa:29, fisico:80 },
-  shotStats: { fastbreak:41, pintura:11, media:54, "3P ncaa":90, "3P nba":85, libres:27 }
+  team: "TEXAS TECH",
+  ataque: "<br><span class='gap'></span>- 13.5 PPG | 15.0 USG% | 34.6 MIN<br>- 46.3 FG% |  45.8 3P% | 84.1 FT%<br>- 0.8 ASIS | 0.4 TOV",
+  defensa: "<br><span class='gap'></span>- 3.2 REB | 2.3 PF<br>- 1.2 STL | 0.1 BLK<br>- 98.0 D-RAT | 1.16 D-BPR",
+  img: "Atwell.png",
+  stats: { atletico:25, tiro:75, pase:10, creacion:5, defensa:65, fisico:40 },
+  shotStats: { fastbreak:4, pintura:5, media:37, "3P ncaa":93, "3P nba":92, libres:30 }
 },
 {
   name: "MALIK RENEAU",
@@ -393,7 +393,7 @@ const players = [
   shotStats: { fastbreak:57, pintura:63, media:16, "3P ncaa":9, "3P nba":62, libres:60 }
 },
 {
-  name: "null",
+  name: "DARRION WILLIAMS",
   height: "1.98 M",
   position: "ALERO",
   comp: "DAVID RODDY",
@@ -402,7 +402,7 @@ const players = [
   team: "NC STATE",
   ataque: "<br><span class='gap'></span>- 14.0 PPG | 24.6 USG% | 30.0 MIN<br>- 41.4 FG% |  40.4 3P% | 77.3 FT%<br>- 2.8 ASIS | 1.5 TOV",
   defensa: "<br><span class='gap'></span>- 4.6 REB | 2.5 PF<br>- 1.1 STL | 0.3 BLK<br>- 100.9 D-RAT | 1.88 D-BPR",
-  img: "image1.png",
+  img: "Darrion.png",
   stats: { atletico:20, tiro:46, pase:71, creacion:33, defensa:29, fisico:80 },
   shotStats: { fastbreak:41, pintura:11, media:54, "3P ncaa":90, "3P nba":85, libres:27 }
 },
