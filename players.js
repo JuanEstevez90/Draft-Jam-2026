@@ -276,7 +276,7 @@ const players = [
   team: "BYU",
   ataque: "<br><span class='gap'></span>- 18.0 PPG | 24.3 USG% | 31.4 MIN<br>- 48.9 FG% |  37.6 3P% | 81.7 FT%<br>- 2.1 ASIS | 1.6 TOV",
   defensa: "<br><span class='gap'></span>- 5.8 REB | 2.2 PF<br>- 1.7 STL | 0.3 BLK<br>- 97.6 D-RAT | 1.88 D-BPR",
-  img: "image3.png",
+  img: "Richie.png",
   stats: { atletico:45, tiro:68, pase:25, creacion:30, defensa:40, fisico:45 },
   shotStats: { fastbreak:86, pintura:84, media:32, "3P ncaa":81, "3P nba":62, libres:60 }
 },
@@ -304,7 +304,7 @@ const players = [
   team: "NC STATE",
   ataque: "<br><span class='gap'></span>- 13.9 PPG | 25.6 USG% | 28.9 MIN<br>- 49.4 FG% |  39.7 3P% | 77.5 FT%<br>- 6.5 ASIS | 2.8 TOV",
   defensa: "<br><span class='gap'></span>- 3.6 REB | 3.0 PF<br>- 1.8 STL | 0.1 BLK<br>- 99.2 D-RAT | 2.71 D-BPR",
-  img: "image2.png",
+  img: "Copeland.png",
   stats: { atletico:42, tiro:30, pase:75, creacion:50, defensa:25, fisico:70 },
   shotStats: { fastbreak:57, pintura:63, media:16, "3P ncaa":9, "3P nba":62, libres:60 }
 },
@@ -360,7 +360,7 @@ const players = [
   team: "NC STATE",
   ataque: "<br><span class='gap'></span>- 14.0 PPG | 24.6 USG% | 30.0 MIN<br>- 41.4 FG% |  40.4 3P% | 77.3 FT%<br>- 2.8 ASIS | 1.5 TOV",
   defensa: "<br><span class='gap'></span>- 4.6 REB | 2.5 PF<br>- 1.1 STL | 0.3 BLK<br>- 100.9 D-RAT | 1.88 D-BPR",
-  img: "image1.png",
+  img: "Darrion.png",
   stats: { atletico:20, tiro:46, pase:71, creacion:33, defensa:29, fisico:80 },
   shotStats: { fastbreak:41, pintura:11, media:54, "3P ncaa":90, "3P nba":85, libres:27 }
 },
