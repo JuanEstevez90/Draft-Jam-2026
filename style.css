@@ -404,7 +404,7 @@ height: 100%;
   font-size: 1.4rem;
   margin-top: 55px;
   color: #00f6ff;
-  text-shadow: 0 0 3px #f2fa00;
+  text-shadow: 0 0 3px #1888b0;
   text-align:center;
 }
 
@@ -605,20 +605,20 @@ height: 100%;
     padding: 8px 12px;
   }
 
-}
-
 /* centrar mejor stats */
 .stats-column {
   display: flex;
   align-items: center;
-}
+  }
 
 .stat-row {
   width: 100%;
   justify-content: center;
-}
+  }
 
 /* scout report más compacto */
 #bottom-right {
-  line-height: 14px;
+  line-height: 10px;
+  }
+
 }
