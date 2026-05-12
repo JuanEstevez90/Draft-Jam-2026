@@ -633,9 +633,24 @@ function renderSegments(v) {
 const randomNames = players.map(p => p.name);
 let compInterval = null;
 
+// 🔥 AUDIO
+const compSound = new Audio("Comp.wav");
+const scoutSound = new Audio("Scout.wav");
+const clickSound = new Audio("Click.wav");
+
+function playClickSound() {
+  clickSound.currentTime = 0;
+  clickSound.play();
+}
+
 function startComparison() {
   const resultEl = document.getElementById("comp-result");
   if (!resultEl || !currentPlayer) return;
+
+  // 🔥 reproducir sonido
+  compSound.currentTime = 0;
+compSound.volume = 0.3
+  compSound.play();
 
   // limpiar si ya estaba corriendo
   if (compInterval) clearInterval(compInterval);
@@ -648,7 +663,7 @@ function startComparison() {
 
     elapsed += 100;
 
-    if (elapsed >= 4000) {
+    if (elapsed >= 1800) {
       clearInterval(compInterval);
       resultEl.textContent = currentPlayer.comp || "-";
     }
@@ -657,6 +672,8 @@ function startComparison() {
 }
 
 function nextRatingsPage() {
+  playClickSound();
+
   const pages = document.querySelectorAll('.ratings-page');
 
   pages[ratingsPage].style.display = 'none';
@@ -669,6 +686,8 @@ function nextRatingsPage() {
 }
 
 function prevRatingsPage() {
+  playClickSound();
+
   const pages = document.querySelectorAll('.ratings-page');
 
   pages[ratingsPage].style.display = 'none';
@@ -733,6 +752,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('scout-btn').onclick = () => {
   if (!currentPlayer) return;
+
+  scoutSound.currentTime = 0;
+scoutSound.volume = 0.3
+  scoutSound.play();
 
   scoutMode = !scoutMode;
 
