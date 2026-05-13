@@ -569,6 +569,12 @@ bottomLeft.innerHTML = `
     </div>
 
     <div class="ratings-page" data-page="2" style="display:none;">
+      <div class="alt-page">
+        ${renderStats(player.defenseStats || {})}
+      </div>
+    </div>
+
+    <div class="ratings-page" data-page="3" style="display:none;">
       <div class="comparison-box">
         <div id="comp-result">-</div>
         <div id="comp-btn">COMP</div>
@@ -740,7 +746,7 @@ function updateRatingsTitle() {
   const title = document.getElementById('ratings-title');
   if (!title) return;
 
-const titles = ["RATINGS", "ANOTACION", "COMPARACION"];
+const titles = ["RATINGS", "ANOTACION", "DEFENSA", "COMPARACION"];
 
   title.textContent = titles[ratingsPage] || "RATINGS";
 }

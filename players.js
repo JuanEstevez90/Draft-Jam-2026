@@ -12,6 +12,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 6.8 REB | 1.2 PF<br>- 1.1 STL | 0.3 BLK<br>- 97.8 D-RAT | 2.63 D-BPR",
   img: "Dybantsa.png",
   stats: { atletico:80, tiro:35, pase:58, creacion:85, defensa:48, fisico:95 },
+  defenseStats: { altura:100, wingspan:100, peso:69, rebote:92, robos:44, tapones:56 },
   shotStats: { fastbreak:90, pintura:92, media:80, "3P ncaa":31, "3P nba":34, libres:77 }
 },
 {
