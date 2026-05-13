@@ -12,7 +12,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 6.8 REB | 1.2 PF<br>- 1.1 STL | 0.3 BLK<br>- 97.8 D-RAT | 2.63 D-BPR",
   img: "Dybantsa.png",
   stats: { atletico:80, tiro:35, pase:58, creacion:85, defensa:48, fisico:95 },
-  defenseStats: { altura:100, wingspan:100, peso:69, rebote:92, robos:44, tapones:56 },
+  defenseStats: { altura:100, wingspan:96, peso:83, rebote:92, robos:44, tapones:56 },
   shotStats: { fastbreak:90, pintura:92, media:80, "3P ncaa":31, "3P nba":34, libres:77 }
 },
 {
@@ -27,6 +27,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 4.2 REB | 1.5 PF<br>- 1.4 STL | 0.6 BLK<br>- 89.7 D-RAT | 3.47 D-BPR",
   img: "Peterson.png",
   stats: { atletico:59, tiro:84, pase:38, creacion:75, defensa:44, fisico:70 },
+  defenseStats: { altura:46, wingspan:58, peso:38, rebote:44, robos:80, tapones:85 },
   shotStats: { fastbreak:70, pintura:54, media:83, "3P ncaa":84, "3P nba":68, libres:89 }
 },
 {
@@ -41,6 +42,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 10.2 REB | 1.7 PF<br>- 1.4 STL | 0.6 BLK<br>- 86.0 D-RAT | 4.86 D-BPR",
   img: "Boozer.png",
   stats: { atletico:55, tiro:50, pase:78, creacion:70, defensa:45, fisico:65 },
+  defenseStats: { altura:31, wingspan:31, peso:73, rebote:79, robos:93, tapones:7 },
   shotStats: { fastbreak:59, pintura:75, media:35, "3P ncaa":64, "3P nba":84, libres:87 }
 },
 {
@@ -55,6 +57,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 5.1 REB | 2.0 PF<br>- 0.9 STL | 0.4 BLK<br>- 94.2 D-RAT | 2.46 D-BPR",
   img: "Wagler.png",
   stats: { atletico:29, tiro:67, pase:58, creacion:50, defensa:42, fisico:60 },
+  defenseStats: { altura:96, wingspan:57, peso:54, rebote:54, robos:10, tapones:90 },
   shotStats: { fastbreak:5, pintura:56, media:9, "3P ncaa":58, "3P nba":76, libres:62 }
 },
 {
@@ -69,6 +72,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 9.4 REB | 1.9 PF<br>- 1.5 STL | 1.4 BLK<br>- 95.7 D-RAT | 3.60 D-BPR",
   img: "Wilson.png",
   stats: { atletico:65, tiro:20, pase:44, creacion:75, defensa:75, fisico:90 },
+  defenseStats: { altura:77, wingspan:62, peso:15, rebote:88, robos:82, tapones:71 },
   shotStats: { fastbreak:94, pintura:78, media:87, "3P ncaa":25, "3P nba":5, libres:72 }
 },
 {
@@ -83,6 +87,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 6.8 REB | 2.2 PF<br>- 0.4 STL | 2.6 BLK<br>- 84.6 D-RAT | 5.34 D-BPR",
   img: "Mara.png",
   stats: { atletico:27, tiro:27, pase:65, creacion:50, defensa:46, fisico:95 },
+  defenseStats: { altura:100, wingspan:92, peso:89, rebote:62, robos:14, tapones:98 },
   shotStats: { fastbreak:39, pintura:88, media:71, "3P ncaa":18, "3P nba":25, libres:25 }
 },
 {
@@ -97,6 +102,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 4.9 REB | 2.1 PF<br>- 1.5 STL | 0.2 BLK<br>- 85.7 D-RAT | 3.97 D-BPR",
   img: "Burries.png",
   stats: { atletico:43, tiro:60, pase:40, creacion:33, defensa:53, fisico:40 },
+  defenseStats: { altura:29, wingspan:17, peso:83, rebote:82, robos:80, tapones:23 },
   shotStats: { fastbreak:96, pintura:73, media:64, "3P ncaa":62, "3P nba":58, libres:58 }
 },
 {
@@ -111,6 +117,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 5.8 REB | 1.9 PF<br>- 0.9 STL | 1.3 BLK<br>- 101.8 D-RAT | 2.23 D-BPR",
   img: "Carr.png",
   stats: { atletico:55, tiro:75, pase:35, creacion:30, defensa:40, fisico:60 },
+  defenseStats: { altura:46, wingspan:92, peso:4, rebote:95, robos:33, tapones:95 },
   shotStats: { fastbreak:64, pintura:86, media:29, "3P ncaa":60, "3P nba":65, libres:59 }
 },
 {
@@ -125,6 +132,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 7.9 REB | 2.3 PF<br>- 0.8 STL | 0.5 BLK<br>- 85.5 D-RAT | 4.06 D-BPR",
   img: "Cenac.png",
   stats: { atletico:50, tiro:65, pase:28, creacion:20, defensa:60, fisico:80 },
+  defenseStats: { altura:81, wingspan:81, peso:42, rebote:98, robos:76, tapones:14 },
   shotStats: { fastbreak:8, pintura:38, media:83, "3P ncaa":56, "3P nba":48, libres:11 }
 },
 {
@@ -139,6 +147,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 3.3 REB | 1.6 PF<br>- 1.2 STL | 0.1 BLK<br>- 95.2 D-RAT | 2.08 D-BPR",
   img: "Mikel.png",
   stats: { atletico:79, tiro:71, pase:29, creacion:71, defensa:20, fisico:30 },
+  defenseStats: { altura:89, wingspan:86, peso:61, rebote:82, robos:41, tapones:36 },
   shotStats: { fastbreak:42, pintura:62, media:18, "3P ncaa":49, "3P nba":88, libres:84 }
 },
 {
@@ -153,6 +162,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 6.8 REB | 1.7 PF<br>- 1.1 STL | 1.2 BLK<br>- 83.7 D-RAT | 5.55 D-BPR",
   img: "Lendeborg.png",
   stats: { atletico:47, tiro:47, pase:69, creacion:33, defensa:67, fisico:95 },
+  defenseStats: { altura:69, wingspan:92, peso:77, rebote:53, robos:65, tapones:82 },
   shotStats: { fastbreak:80, pintura:60, media:45, "3P ncaa":70, "3P nba":60, libres:70 }
 },
 {
@@ -167,6 +177,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 7.3 REB | 2.4 PF<br>- 0.7 STL | 1.1 BLK<br>- 84.7 D-RAT | 4.69 D-BPR",
   img: "Morez.png",
   stats: { atletico:63, tiro:34, pase:10, creacion:20, defensa:81, fisico:80 },
+  defenseStats: { altura:77, wingspan:92, peso:100, rebote:71, robos:29, tapones:94 },
   shotStats: { fastbreak:66, pintura:78, media:28, "3P ncaa":51, "3P nba":32, libres:73 }
 },
 {
@@ -181,6 +192,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 4.1 REB | 2.0 PF<br>- 1.5 STL | 0.3 BLK<br>- 89.7 D-RAT | 3.39 D-BPR",
   img: "Flemings.png",
   stats: { atletico:70, tiro:40, pase:55, creacion:65, defensa:38, fisico:25 },
+  defenseStats: { altura:61, wingspan:14, peso:32, rebote:90, robos:64, tapones:90 },
   shotStats: { fastbreak:53, pintura:64, media:88, "3P ncaa":30, "3P nba":46, libres:56 }
 },
 {
@@ -195,6 +207,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 5.6 REB | 2.2 PF<br>- 0.6 STL | 0.7 BLK<br>- 84.2 D-RAT | 3.73 D-BPR",
   img: "Peat.png",
   stats: { atletico:56, tiro:25, pase:69, creacion:50, defensa:50, fisico:80 },
+  defenseStats: { altura:31, wingspan:39, peso:85, rebote:24, robos:12, tapones:29 },
   shotStats: { fastbreak:80, pintura:59, media:57, "3P ncaa":40, "3P nba":2, libres:39 }
 },
 {
@@ -209,6 +222,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 7.4 REB | 2.3 PF<br>- 1.6 STL | 0.8 BLK<br>- 87.9 D-RAT | 4.64 D-BPR",
   img: "Jefferson.png",
   stats: { atletico:20, tiro:43, pase:82, creacion:39, defensa:46, fisico:38 },
+  defenseStats: { altura:46, wingspan:8, peso:92, rebote:88, robos:88, tapones:59 },
   shotStats: { fastbreak:63, pintura:28, media:51, "3P ncaa":57, "3P nba":63, libres:67 }
 },
 {
@@ -223,6 +237,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 3.1 REB | 1.6 PF<br>- 0.8 STL | 0.3 BLK<br>- 101.3 D-RAT | 1.04 D-BPR",
   img: "Acuff.png",
   stats: { atletico:47, tiro:69, pase:38, creacion:44, defensa:28, fisico:35 },
+  defenseStats: { altura:46, wingspan:57, peso:43, rebote:21, robos:3, tapones:67 },
   shotStats: { fastbreak:95, pintura:75, media:65, "3P ncaa":87, "3P nba":49, libres:67 }
 },
 {
@@ -237,6 +252,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 6.3 REB | 2.0 PF<br>- 1.0 STL | 0.6 BLK<br>- 92.1 D-RAT | 3.60 D-BPR",
   img: "Ament.png",
   stats: { atletico:54, tiro:32, pase:54, creacion:43, defensa:50, fisico:65 },
+  defenseStats: { altura:92, wingspan:39, peso:15, rebote:65, robos:59, tapones:41 },
   shotStats: { fastbreak:80, pintura:21, media:66, "3P ncaa":53, "3P nba":78, libres:89 }
 },
 {
@@ -251,13 +267,14 @@ const players = [
   defensa: "<br><span class='gap'></span>- 8.7 REB | 2.5 PF<br>- 0.6 STL | 1.2 BLK<br>- 92.3 D-RAT | 3.76 D-BPR",
   img: "Veesaar.png",
   stats: { atletico:47, tiro:65, pase:38, creacion:28, defensa:34, fisico:65 },
+  defenseStats: { altura:89, wingspan:39, peso:15, rebote:76, robos:24, tapones:26 },
   shotStats: { fastbreak:11, pintura:72, media:70, "3P ncaa":80, "3P nba":55, libres:24 }
 },
 {
   name: "LABARON PHILON",
   height: "1.93 M",
   position: "BASE",
-  comp: "DENNIS SCHRODER",
+  comp: "AJAY MITCHELL LIVIANO",
   country: "USA",
   age: "20",
   team: "ALABAMA",
@@ -265,6 +282,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 3.5 REB | 1.6 PF<br>- 1.2 STL | 0.2 BLK<br>- 100.6 D-RAT | 1.98 D-BPR",
   img: "Philon.png",
   stats: { atletico:56, tiro:31, pase:40, creacion:69, defensa:29, fisico:35 },
+  defenseStats: { altura:61, wingspan:57, peso:14, rebote:36, robos:21, tapones:36 },
   shotStats: { fastbreak:90, pintura:86, media:25, "3P ncaa":85, "3P nba":49, libres:68 }
 },
 {
@@ -279,6 +297,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 3.2 REB | 1.2 PF<br>- 0.7 STL | 0.7 BLK<br>- 86.3 D-RAT | 2.73 D-BPR",
   img: "Evans.png",
   stats: { atletico:53, tiro:75, pase:20, creacion:25, defensa:30, fisico:35 },
+  defenseStats: { altura:83, wingspan:42, peso:4, rebote:31, robos:28, tapones:92 },
   shotStats: { fastbreak:31, pintura:57, media:56, "3P ncaa":85, "3P nba":53, libres:61 }
 },
 {
@@ -293,6 +312,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 9.0 REB | 2.9 PF<br>- 0.9 STL | 2.0 BLK<br>- 88.4 D-RAT | 4.91 D-BPR",
   img: "Reed.png",
   stats: { atletico:25, tiro:5, pase:44, creacion:53, defensa:28, fisico:63 },
+  defenseStats: { altura:73, wingspan:69, peso:100, rebote:88, robos:83, tapones:83 },
   shotStats: { fastbreak:18, pintura:81, media:36, "3P ncaa":3, "3P nba":1, libres:45 }
 },
 {
@@ -307,6 +327,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 3.6 REB | 2.0 PF<br>- 1.5 STL | 0.2 BLK<br>- 98.1 D-RAT | 2.31 D-BPR",
   img: "Anderson.png",
   stats: { atletico:42, tiro:79, pase:58, creacion:29, defensa:46, fisico:30 },
+  defenseStats: { altura:29, wingspan:57, peso:29, rebote:26, robos:39, tapones:56 },
   shotStats: { fastbreak:19, pintura:37, media:73, "3P ncaa":80, "3P nba":75, libres:37 }
 },
 {
@@ -321,6 +342,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 5.8 REB | 2.2 PF<br>- 1.7 STL | 0.3 BLK<br>- 97.6 D-RAT | 1.88 D-BPR",
   img: "Richie.png",
   stats: { atletico:45, tiro:68, pase:25, creacion:30, defensa:40, fisico:45 },
+  defenseStats: { altura:75, wingspan:42, peso:67, rebote:74, robos:87, tapones:44 },
   shotStats: { fastbreak:86, pintura:84, media:32, "3P ncaa":81, "3P nba":62, libres:60 }
 },
 {
@@ -335,6 +357,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 7.3 REB | 2.0 PF<br>- 1.5 STL | 1.6 BLK<br>- 100.1 D-RAT | 3.13 D-BPR",
   img: "Brazile.png",
   stats: { atletico:57, tiro:50, pase:27, creacion:27, defensa:48, fisico:60 },
+  defenseStats: { altura:62, wingspan:65, peso:8, rebote:69, robos:98, tapones:43 },
   shotStats: { fastbreak:87, pintura:57, media:13, "3P ncaa":65, "3P nba":41, libres:44 }
 },
 {
@@ -349,13 +372,14 @@ const players = [
   defensa: "<br><span class='gap'></span>- 2.6 REB | 1.9 PF<br>- 1.4 STL | 0.2 BLK<br>- 96.2 D-RAT | 2.48 D-BPR",
   img: "Stirtz.png",
   stats: { atletico:15, tiro:56, pase:81, creacion:25, defensa:20, fisico:12 },
+  defenseStats: { altura:61, wingspan:54, peso:54, rebote:33, robos:41, tapones:67 },
   shotStats: { fastbreak:7, pintura:67, media:85, "3P ncaa":55, "3P nba":65, libres:60 }
 },
 {
   name: "DONOVAN ATWELL",
   height: "1.96 M",
   position: "ESCOLTA",
-  comp: "JORDAN HAWKINS",
+  comp: "DAMYEAN DOTSON",
   country: "USA",
   age: "23",
   team: "TEXAS TECH",
@@ -363,6 +387,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 3.2 REB | 2.3 PF<br>- 1.2 STL | 0.1 BLK<br>- 98.0 D-RAT | 1.16 D-BPR",
   img: "Atwell.png",
   stats: { atletico:25, tiro:75, pase:10, creacion:5, defensa:65, fisico:40 },
+  defenseStats: {altura:46, wingspan:8, peso:21, rebote:5, robos:55, tapones:13 },
   shotStats: { fastbreak:4, pintura:5, media:37, "3P ncaa":93, "3P nba":92, libres:30 }
 },
 {
@@ -377,6 +402,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 6.5 REB | 2.5 PF<br>- 1.1 STL | 0.8 BLK<br>- 96.3 D-RAT | 2.49 D-BPR",
   img: "Reneau.png",
   stats: { atletico:25, tiro:31, pase:55, creacion:56, defensa:20, fisico:45 },
+  defenseStats: {altura:8, wingspan:0, peso:35, rebote:26, robos:86, tapones:24 },
   shotStats: { fastbreak:45, pintura:64, media:26, "3P ncaa":49, "3P nba":59, libres:88 }
 },
 {
@@ -391,6 +417,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 3.6 REB | 3.0 PF<br>- 1.8 STL | 0.1 BLK<br>- 99.2 D-RAT | 2.71 D-BPR",
   img: "Copeland.png",
   stats: { atletico:42, tiro:30, pase:75, creacion:50, defensa:25, fisico:70 },
+  defenseStats: {altura:100, wingspan:100, peso:79, rebote:85, robos:85, tapones:46 },
   shotStats: { fastbreak:57, pintura:63, media:16, "3P ncaa":9, "3P nba":62, libres:60 }
 },
 {
@@ -405,6 +432,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 4.6 REB | 2.5 PF<br>- 1.1 STL | 0.3 BLK<br>- 100.9 D-RAT | 1.88 D-BPR",
   img: "Darrion.png",
   stats: { atletico:20, tiro:46, pase:71, creacion:33, defensa:29, fisico:80 },
+  defenseStats: {altura:14, peso:57, rebote:52, robos:70, tapones:44 },
   shotStats: { fastbreak:41, pintura:11, media:54, "3P ncaa":90, "3P nba":85, libres:27 }
 },
 {
@@ -419,6 +447,7 @@ const players = [
   defensa: "<br><span class='gap'></span>- 7.2 REB | 2.2 PF<br>- 1.0 STL | 1.8 BLK<br>- 96.6 D-RAT | 3.78 D-BPR",
   img: "Keba Keita.png",
   stats: { atletico:75, tiro:10, pase:20, creacion:20, defensa:53, fisico:30 },
+  defenseStats: {altura:0, wingspan:23, peso:42, rebote:70, robos:95, tapones:81 },
   shotStats: { fastbreak:18, pintura:58, media:2, "3P ncaa":2, "3P nba":2, libres:10 }
 }
 ];
