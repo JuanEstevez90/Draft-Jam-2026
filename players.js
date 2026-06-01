@@ -385,7 +385,7 @@ const players = [
   team: "UCONN",
   ataque: "<br><span class='gap'></span>- 13.2 PPG | 18.4 USG% | 34.3 MIN<br>- 46.4 FG% |  37.4 3P% | 85.1 FT%<br>- 2.4 ASIS | 1.1 TOV",
   defensa: "<br><span class='gap'></span>- 5.3 REB | 2.0 PF<br>- 0.8 STL | 0.8 BLK<br>- 91.3 D-RAT | 2.76 D-BPR",
-  img: "KARABAN.png",
+  img: "Karaban.png",
   stats: { atletico:30, tiro:60, pase:25, creacion:15, defensa:50, fisico:50 },
   defenseStats: { altura:15, wingspan:31, peso:54, rebote:6, robos:29, tapones:47 },
   shotStats: { fastbreak:37, pintura:16, media:25, "3P ncaa":75, "3P nba":82, libres:48 }
