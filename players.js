@@ -731,7 +731,7 @@ name: "RYAN CONWELL",
   ataque: "<br><span class='gap'></span>- 12.3 PPG | 20.4 USG% | 30.0 MIN<br>- 44.4 FG% |  30.7 3P% | 78.1 FT%<br>- 3.0 ASIS | 1.1 TOV",
   defensa: "<br><span class='gap'></span>- 4.0 REB | 2.1 PF<br>- 0.7 STL | 0.0 BLK<br>- 94.1 D-RAT | 1.94 D-BPR",
   img: "Boswell.png",
-  stats: { atletico:35, tiro:35, pase:40, creacion:20, defensa:30, fisico:40 },
+  stats: { atletico:35, tiro:35, pase:40, creacion:20, defensa:38, fisico:40 },
   defenseStats: {altura:36, wingspan:79, peso:100, rebote:36, robos:8, tapones:0 },
   shotStats: { fastbreak:14, pintura:58, media:39, "3P ncaa":25, "3P nba":35, libres:47 }
 },

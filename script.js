@@ -94,8 +94,8 @@ const SCOUT_DATA = {
     <p>. FISICO PARA ATACAR EL ARO; BUEN 2P%</p>
     <p>. TIENE DESTELLOS DE MUY BUEN PASADOR</p>
     <p>. SIN UN DRIBLE DEMASIADO DINAMICO</p>
-    <p>. PROBLEMAS EN DEFENSA; NO SUMA ROBOS</p>
-    <p>. 0 TAPONES EN 901 MINUTOS; ATACABLE</p>
+    <p>. DEFENSOR INTENSO, FISICO, FUERTE</p>
+    <p>. POCOS ROBOS; 0 TAPONES EN 901 MIN.</p>
     <p>. AYUDA EN EL REBOTE DEFENSIVO</p>
     <p>. VALOR: UNDRAFTED</p>
   `,
@@ -1151,7 +1151,7 @@ function updateRatingsTitle() {
   const title = document.getElementById('ratings-title');
   if (!title) return;
 
-const titles = ["RATINGS", "ANOTACION", "DEFENSA", "COMPARACION"];
+const titles = ["RATINGS", "ATAQUE", "DEFENSA", "COMPARACION"];
 
   title.textContent = titles[ratingsPage] || "RATINGS";
 }
