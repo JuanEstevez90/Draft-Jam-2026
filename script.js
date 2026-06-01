@@ -979,12 +979,14 @@ bottomLeft.innerHTML = `
       </div>
     </div>
 
-    <div class="ratings-page" data-page="3" style="display:none;">
-      <div class="comparison-box">
-        <div id="comp-result">-</div>
-        <div id="comp-btn">COMP</div>
-      </div>
+<div class="ratings-page" data-page="3" style="display:none;">
+  <div class="alt-page">
+    <div class="comparison-box">
+      <div id="comp-result">-</div>
+      <div id="comp-btn">COMP</div>
     </div>
+  </div>
+</div>
 
     <div class="ratings-arrow left" onclick="prevRatingsPage()">◀</div>
     <div class="ratings-arrow right" onclick="nextRatingsPage()">▶</div>
